@@ -1,4 +1,4 @@
-onst or let?
+0. Const or let?
 mandatory
 Modify
 
@@ -35,7 +35,7 @@ Repo:
 GitHub repository: alx-frontend-javascript
 Directory: 0x00-ES6_basic
 File: 0-constants.js
-  
+   
 1. Block Scope
 mandatory
 Given what you’ve read about var and hoisting, modify the variables inside the function taskBlock so that the variables aren’t overwritten inside the conditional block.
@@ -68,7 +68,7 @@ Repo:
 GitHub repository: alx-frontend-javascript
 Directory: 0x00-ES6_basic
 File: 1-block-scoped.js
-  
+   
 2. Arrow functions
 mandatory
 Rewrite the following standard function to use ES6’s arrow syntax of the function add (it will be an anonymous function after)
@@ -99,7 +99,7 @@ Repo:
 GitHub repository: alx-frontend-javascript
 Directory: 0x00-ES6_basic
 File: 2-arrow.js
-  
+   
 3. Parameter defaults
 mandatory
 Condense the internals of the following function to 1 line - without changing the name of each function/variable.
@@ -135,7 +135,7 @@ Repo:
 GitHub repository: alx-frontend-javascript
 Directory: 0x00-ES6_basic
 File: 3-default-parameter.js
-  
+   
 4. Rest parameter syntax for functions
 mandatory
 Modify the following function to return the number of arguments passed to it using the rest parameter syntax
@@ -165,7 +165,7 @@ Repo:
 GitHub repository: alx-frontend-javascript
 Directory: 0x00-ES6_basic
 File: 4-rest-parameter.js
-  
+   
 5. The wonders of spread syntax
 mandatory
 Using spread syntax, concatenate 2 arrays and each character of a string by modifying the function below. Your function body should be one line long.
@@ -192,7 +192,7 @@ Repo:
 GitHub repository: alx-frontend-javascript
 Directory: 0x00-ES6_basic
 File: 5-spread-operator.js
-  
+   
 6. Take advantage of template literals
 mandatory
 Rewrite the return statement to use a template literal so you can the substitute the variables you’ve defined.
@@ -225,7 +225,7 @@ Repo:
 GitHub repository: alx-frontend-javascript
 Directory: 0x00-ES6_basic
 File: 6-string-interpolation.js
-  
+   
 7. Object property value shorthand syntax
 mandatory
 Notice how the keys and the variable names are the same?
@@ -257,7 +257,7 @@ Repo:
 GitHub repository: alx-frontend-javascript
 Directory: 0x00-ES6_basic
 File: 7-getBudgetObject.js
-  
+   
 8. No need to create empty objects before adding in properties
 mandatory
 Rewrite the getBudgetForCurrentYear function to use ES6 computed property names on the budget object
@@ -292,7 +292,7 @@ Repo:
 GitHub repository: alx-frontend-javascript
 Directory: 0x00-ES6_basic
 File: 8-getBudgetCurrentYear.js
-  
+   
 9. ES6 method properties
 mandatory
 Rewrite getFullBudgetObject to use ES6 method properties in the fullBudget object
@@ -333,7 +333,7 @@ Repo:
 GitHub repository: alx-frontend-javascript
 Directory: 0x00-ES6_basic
 File: 9-getFullBudget.js
-  
+   
 10. For...of Loops
 mandatory
 Rewrite the function appendToEachArrayValue to use ES6’s for...of operator. And don’t forget that var is not ES6-friendly.
@@ -362,7 +362,7 @@ Repo:
 GitHub repository: alx-frontend-javascript
 Directory: 0x00-ES6_basic
 File: 10-loops.js
-  
+   
 11. Iterator
 mandatory
 Write a function named createEmployeesObject that will receive two arguments:
@@ -395,7 +395,7 @@ Repo:
 GitHub repository: alx-frontend-javascript
 Directory: 0x00-ES6_basic
 File: 11-createEmployeesObject.js
-  
+   
 12. Let's create a report object
 mandatory
 Write a function named createReportObject whose parameter, employeesList, is the return value of the previous function createEmployeesObject.
@@ -442,7 +442,7 @@ Repo:
 GitHub repository: alx-frontend-javascript
 Directory: 0x00-ES6_basic
 File: 12-createReportObject.js
-  
+   
 13. Iterating through report objects
 #advanced
 Write a function named createIteratorObject, that will take into argument a report Object created with the previous function createReportObject.
@@ -484,7 +484,7 @@ Repo:
 GitHub repository: alx-frontend-javascript
 Directory: 0x00-ES6_basic
 File: 100-createIteratorObject.js
-  
+   
 14. Iterate through object
 #advanced
 Finally, write a function named iterateThroughObject. The function’s parameter reportWithIterator is the return value from createIteratorObject.
