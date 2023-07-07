@@ -1,94 +1,50 @@
-interface Teacher {
-    // firstName(string) and lastName(string).
-    // These two attributes should only be modifiable when a Teacher is first initialized
-    readonly firstName: string;
-    readonly lastName: string;
+// Create a directory called task_3 and copy these configuration files into it: package.json, webpack.config.js, tsconfig.json.
+//
+//     The first part of will require that you build an interface and a type.
+//     Inside a file named interface.ts:
+//
+//     Create a type RowID and set it equal to number
+// Create an interface RowElement that contains these 3 fields:
+//     firstName: string
+// lastName: string
+// age?: number
+// You are building the next part of the application architecture.
+// The goal is to save the entities to a database. Because of time constraints,
+// you can’t write a connector to the database, and you decided to download a library called crud.js.
+// Copy this file into the task_3/js directory.
+//
+//     Here it is
+//
+// Write an ambient file within task_3/js, named crud.d.ts containing the type declarations for each crud function. At the top of the file import RowID and RowElement from interface.ts.
+//
+//     In main.ts
+//
+// At the top of the file create a triple slash directive that includes all the dependencies from crud.d.ts
+// Import the rowID type and rowElement from interface.ts
+// Import everything from crud.js as CRUD
+// Create an object called row with the type RowElement with the fields set to these values:
+//
+//     firstName: Guillaume
+// lastName: Salva
+// Create a const variable named newRowID with the type RowID and assign the value the insertRow command.
+//
+//     Next, create a const variable named updatedRow with the type RowElement and update row with an age field set to 23
+//
+// Finally, call the updateRow and deleteRow commands.
 
-    //fullTimeEmployee(boolean) this attribute should always be defined
-    fullTimeEmployee: boolean;
-   // location(string) this attribute should always be defined
-    location: string;
 
-    //yearsOfExperience(number) this attribute is optional
-    yearsOfExperience?: number;
 
-    // Add the possibility to add any attribute to the
-    // Object like contract(boolean) without specifying the name of the attribute
-    [key: string]: any
-}
-const teacher1: Teacher = {
-    firstName: 'Frank',
-    lastName: 'Donald',
-    fullTimeEmployee: true,
-    location: 'New Jersey',
-    contract: false,
-}
-console.log(teacher1);
+/// <reference path="crud.d.ts" />
+import { RowID, RowElement } from './interface';
+import * as CRUD from './crud';
 
-interface Directors extends Teacher {
-    numberOfReports: number;
-}
-//Write an interface named Directors that extends Teacher. It requires an attribute named numberOfReports(number)
-const director1: Directors = {
-    firstName: 'John',
-    lastName: 'Smith',
-    location: 'America',
-    fullTimeEmployee: true,
-    numberOfReports: 17,
-};
-
-console.log(director1);
-
-// Write a function printTeacher:
-//It accepts two arguments firstName and lastName
-// It returns the first letter of the firstName and the full lastName
-// Example: printTeacher("John", "Doe") -> J. Doe
-// Write an interface for the function named printTeacherFunction.
-
-interface printTeacherFunction {
-    (firstName: string, lastName: string): string;
+const row: RowElement = {
+    firstName: 'Brian',
+    lastName: 'Lema',
 }
 
-export const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => `${firstName[0]}. ${lastName}`;
+const newRowID: RowID = CRUD.insertRow(row);
+const updatedRow: RowElement = {age: 23, ...row};
 
-console.log(printTeacher('john', 'doe'));
-
-// Write a Class named StudentClass:
-//The constructor accepts firstName(string) and lastName(string) arguments
-// The class has a method named workOnHomework that return the string Currently working
-// The class has a method named displayName. It returns the firstName of the student
-// The constructor of the class should be described through an Interface
-// The class should be described through an Interface
-interface StudentClassInterface {
-    firstName: string;
-    lastName: string;
-}
-
-interface StudentClassConstructorInterface {
-    new(firstName: string, lastName: string): StudentClassInterface;
-}
-
-class StudentClass implements StudentClassInterface {
-    firstName: string;
-    lastName: string;
-
-    constructor(firstName: string, lastName: string) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    workOnHomework(): string {
-        return 'Currently working';
-    }
-
-    displayName(): string {
-        return this.firstName;
-    }
-}
-
-function createStudent(cStudent: StudentClassConstructorInterface, firstName: string, lastName: string): StudentClassInterface {
-    return new cStudent(firstName, lastName);
-}
-
-const student1 = createStudent(StudentClass, 'mike', 'tyson');
-console.log(student1);
+CRUD.updateRow(newRowID, updatedRow);
+CRUD.deleteRow(newRowID);
