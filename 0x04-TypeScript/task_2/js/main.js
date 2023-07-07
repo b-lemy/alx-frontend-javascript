@@ -1,40 +1,68 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.printTeacher = void 0;
-var teacher1 = {
-    firstName: 'Frank',
-    lastName: 'Donald',
-    fullTimeEmployee: true,
-    location: 'New Jersey',
-    contract: false,
-};
-console.log(teacher1);
-var director1 = {
-    firstName: 'John',
-    lastName: 'Smith',
-    location: 'America',
-    fullTimeEmployee: true,
-    numberOfReports: 17,
-};
-console.log(director1);
-var printTeacher = function (firstName, lastName) { return "".concat(firstName[0], ". ").concat(lastName); };
-exports.printTeacher = printTeacher;
-console.log((0, exports.printTeacher)('john', 'doe'));
-var StudentClass = /** @class */ (function () {
-    function StudentClass(firstName, lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+// Create a class Director that will implement DirectorInterface
+//workFromHome should return the string Working from home
+// getToWork should return the string Getting a coffee break
+// workDirectorTasks should return the string Getting to director tasks
+var Director = /** @class */ (function () {
+    function Director() {
     }
-    StudentClass.prototype.workOnHomework = function () {
-        return 'Currently working';
+    Director.prototype.workFromHome = function () {
+        return 'Working from home';
     };
-    StudentClass.prototype.displayName = function () {
-        return this.firstName;
+    Director.prototype.getCoffeeBreak = function () {
+        return 'Getting a coffee break';
     };
-    return StudentClass;
+    Director.prototype.workDirectorTasks = function () {
+        return 'Getting to director tasks';
+    };
+    return Director;
 }());
-function createStudent(cStudent, firstName, lastName) {
-    return new cStudent(firstName, lastName);
+// Create a class Teacher that will implement TeacherInterface
+//workFromHome should return the string Cannot work from home
+// getCoffeeBreak should return the string Cannot have a break
+// workTeacherTasks should return the string Getting to work
+var Teacher = /** @class */ (function () {
+    function Teacher() {
+    }
+    Teacher.prototype.workFromHome = function () {
+        return 'Cannot work from home';
+    };
+    Teacher.prototype.getCoffeeBreak = function () {
+        return 'Cannot have a break';
+    };
+    Teacher.prototype.workTeacherTasks = function () {
+        return 'Getting to work';
+    };
+    return Teacher;
+}());
+// Create a function createEmployee with the following requirements:
+// It can return either a Director or a Teacher instance
+// It accepts 1 argument:
+//   salary(either number or string)
+// if salary is a number and less than 500 - It should return a new Teacher. Otherwise,
+// it should return a Director
+function createEmployee(salary) {
+    return typeof salary === 'number' && salary < 500 ? new Teacher() : new Director();
 }
-var student1 = createStudent(StudentClass, 'mike', 'tyson');
-console.log(student1);
+console.log(createEmployee(200));
+console.log(createEmployee(1000));
+console.log(createEmployee('$500'));
+// Write a function isDirector:
+//
+//     it accepts employee as an argument
+// it will be used as a type predicate and if the employee is a director
+// Write a function executeWork:
+//
+//     it accepts employee as an argument
+// if the employee is a Director, it will call workDirectorTasks
+// if the employee is a Teacher, it will call workTeacherTasks
+var isDirector = function (employee) { return employee instanceof Director; };
+var executeWork = function (employee) {
+    var res;
+    isDirector(employee) ? res = employee.workDirectorTasks() : res = employee.workTeacherTasks();
+    return res;
+};
+console.log(executeWork(createEmployee(200)));
+console.log(executeWork(createEmployee(1000)));
+var teachClass = function (todayClass) { return todayClass === 'Math' ? 'Teaching Math' : 'Teaching History'; };
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
