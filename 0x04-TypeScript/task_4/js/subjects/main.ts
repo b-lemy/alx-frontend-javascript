@@ -24,3 +24,33 @@
 // In the class, write a method named getRequirements that will return a string Here is the list of requirements for Java
 //     Write a method named getAvailableTeacher that will return a string Available Teacher: <first name of teacher>
 // If the teacher doesn’t have any experience in teaching Java, then the method should return a string No available teacher
+
+/// <reference path="subjects/Teacher.ts" />
+/// <reference path="subjects/Subject.ts" />
+/// <reference path="subjects/Cpp.ts" />
+/// <reference path="subjects/React.ts" />
+/// <reference path="subjects/Java.ts" />
+
+export const cpp = new Subjects.Cpp();
+export const java = new Subjects.Java();
+export const react = new Subjects.React();
+export const cTeacher: Subjects.Teacher = {
+    firstName: "Bobby",
+    lastName: "Wine",
+    experienceTeachingC: 10,
+};
+
+console.log("C++");
+cpp.setTeacher = cTeacher;
+console.log(cpp.getRequirements());
+console.log(cpp.getAvailableTeacher());
+
+console.log("Java");
+java.setTeacher = cTeacher;
+console.log(java.getRequirements());
+console.log(java.getAvailableTeacher());
+
+console.log("React");
+react.setTeacher = cTeacher;
+console.log(react.getRequirements());
+console.log(react.getAvailableTeacher());
