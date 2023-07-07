@@ -25,11 +25,11 @@
 //     Write a method named getAvailableTeacher that will return a string Available Teacher: <first name of teacher>
 // If the teacher doesn’t have any experience in teaching Java, then the method should return a string No available teacher
 
-/// <reference path="Teacher.ts" />
-/// <reference path="Subject.ts" />
-/// <reference path="Cpp.ts" />
-/// <reference path="React.ts" />
-/// <reference path="Java.ts" />
+/// <reference path="subjects/Teacher.ts" />
+/// <reference path="subjects/Subject.ts" />
+/// <reference path="subjects/Cpp.ts" />
+/// <reference path="subjects/React.ts" />
+/// <reference path="subjects/Java.ts" />
 
 export const cpp = new Subjects.Cpp();
 export const java = new Subjects.Java();
